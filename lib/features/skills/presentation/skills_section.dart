@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../core/animations/animated_reveal.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/portfolio_data.dart';
@@ -17,59 +17,62 @@ class SkillsSection extends StatelessWidget {
     final bool mobile = Responsive.isMobile(context) || Responsive.isTablet(context);
     final categories = ["Mobile Development", "Architecture", "Backend", "Tools", "Platforms"];
 
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: mobile ? 20 : 64,
-        vertical: 60,
-      ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1300),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SectionHeading(
-                title: "Technical Expertise",
-                subtitle: "Comprehensive mastery of the modern cross-platform engineering stack.",
-                isDark: isDark,
-              ),
-              const SizedBox(height: 40),
-              ...categories.map((category) {
-                final skillsInCategory = PortfolioData.skills.where((s) => s.category == category).toList();
-                if (skillsInCategory.isEmpty) return const SizedBox.shrink();
+    return AnimatedReveal(
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: mobile ? 20 : 64,
+          vertical: 60,
+        ),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1300),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SectionHeading(
+                  title: "Technical Expertise",
+                  subtitle: "Comprehensive mastery of the modern cross-platform engineering stack.",
+                  isDark: isDark,
+                ),
+                const SizedBox(height: 40),
+                ...categories.map((category) {
+                  final skillsInCategory = PortfolioData.skills.where((s) => s.category == category).toList();
+                  if (skillsInCategory.isEmpty) return const SizedBox.shrink();
 
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      category,
-                      style: GoogleFonts.plusJakartaSans(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.accent,
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        category,
+                        style: TextStyle(
+                          fontFamily: 'sans-serif',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.accent,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: mobile ? 1 : (Responsive.isTablet(context) ? 2 : 3),
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
-                        childAspectRatio: 3.2,
+                      const SizedBox(height: 16),
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: mobile ? 1 : (Responsive.isTablet(context) ? 2 : 3),
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                          childAspectRatio: 3.2,
+                        ),
+                        itemCount: skillsInCategory.length,
+                        itemBuilder: (context, index) {
+                          final skill = skillsInCategory[index];
+                          return _SkillCard(skill: skill, isDark: isDark);
+                        },
                       ),
-                      itemCount: skillsInCategory.length,
-                      itemBuilder: (context, index) {
-                        final skill = skillsInCategory[index];
-                        return _SkillCard(skill: skill, isDark: isDark);
-                      },
-                    ),
-                    const SizedBox(height: 32),
-                  ],
-                );
-              }),
-            ],
+                      const SizedBox(height: 32),
+                    ],
+                  );
+                }),
+              ],
+            ),
           ),
         ),
       ),
@@ -151,7 +154,8 @@ class _SkillCardState extends State<_SkillCard> {
                 ),
                 child: Text(
                   widget.skill.level,
-                  style: GoogleFonts.plusJakartaSans(
+                  style: TextStyle(
+                    fontFamily: 'sans-serif',
                     fontSize: 11,
                     fontWeight: FontWeight.w600,
                     color: widget.skill.level == "Primary" ? AppColors.accent : AppColors.secondaryAccent,

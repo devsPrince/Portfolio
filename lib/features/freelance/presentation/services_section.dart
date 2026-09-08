@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/animations/animated_reveal.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/portfolio_data.dart';
@@ -15,39 +16,41 @@ class ServicesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool mobile = Responsive.isMobile(context) || Responsive.isTablet(context);
 
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: mobile ? 20 : 64,
-        vertical: 60,
-      ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1300),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SectionHeading(
-                title: "Engineering Services",
-                subtitle: "Professional capabilities tailored for startups, agencies, and product companies.",
-                isDark: isDark,
-              ),
-              const SizedBox(height: 40),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: mobile ? 1 : (Responsive.isTablet(context) ? 2 : 4),
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: 1.15,
+    return AnimatedReveal(
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: mobile ? 20 : 64,
+          vertical: 60,
+        ),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1300),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SectionHeading(
+                  title: "Engineering Services",
+                  subtitle: "Professional capabilities tailored for startups, agencies, and product companies.",
+                  isDark: isDark,
                 ),
-                itemCount: PortfolioData.services.length,
-                itemBuilder: (context, index) {
-                  final service = PortfolioData.services[index];
-                  return _ServiceCard(service: service, isDark: isDark);
-                },
-              ),
-            ],
+                const SizedBox(height: 40),
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: mobile ? 1 : (Responsive.isTablet(context) ? 2 : 4),
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                    childAspectRatio: 1.15,
+                  ),
+                  itemCount: PortfolioData.services.length,
+                  itemBuilder: (context, index) {
+                    final service = PortfolioData.services[index];
+                    return _ServiceCard(service: service, isDark: isDark);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

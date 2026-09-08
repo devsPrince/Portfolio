@@ -1,26 +1,27 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:portfoli/core/error/failures.dart';
-import 'package:portfoli/features/projects/domain/entities/project.dart';
-import 'package:portfoli/features/projects/domain/repositories/project_repository.dart';
-import 'package:portfoli/features/projects/domain/usecases/filter_projects.dart';
-import 'package:portfoli/features/projects/domain/usecases/get_projects.dart';
-import 'package:portfoli/features/projects/presentation/bloc/projects_bloc.dart';
-import 'package:portfoli/features/projects/presentation/bloc/projects_event.dart';
-import 'package:portfoli/features/projects/presentation/bloc/projects_state.dart';
+import 'package:portfolio/core/error/failures.dart';
+import 'package:portfolio/features/projects/domain/entities/project.dart';
+import 'package:portfolio/features/projects/domain/repositories/project_repository.dart';
+import 'package:portfolio/features/projects/domain/usecases/filter_projects.dart';
+import 'package:portfolio/features/projects/domain/usecases/get_projects.dart';
+import 'package:portfolio/features/projects/presentation/bloc/projects_bloc.dart';
+import 'package:portfolio/features/projects/presentation/bloc/projects_event.dart';
+import 'package:portfolio/features/projects/presentation/bloc/projects_state.dart';
 
-class MockGetProjects extends Mock implements GetProjects {}
-class MockFilterProjects extends Mock implements FilterProjects {}
+class MockProjectRepository extends Mock implements ProjectRepository {}
 
 void main() {
   late ProjectsBloc bloc;
-  late MockGetProjects mockGetProjects;
-  late MockFilterProjects mockFilterProjects;
+  late GetProjects getProjects;
+  late FilterProjects filterProjects;
+  late MockProjectRepository mockRepository;
 
   setUp(() {
-    mockGetProjects = MockGetProjects();
-    mockFilterProjects = MockFilterProjects();
-    bloc = ProjectsBloc(getProjects: mockGetProjects, filterProjects: mockFilterProjects);
+    mockRepository = MockProjectRepository();
+    getProjects = GetProjects(mockRepository);
+    filterProjects = FilterProjects(mockRepository);
+    bloc = ProjectsBloc(getProjects: getProjects, filterProjects: filterProjects);
   });
 
   tearDown(() {
@@ -50,7 +51,7 @@ void main() {
   });
 
   test('emits [ProjectsLoading, ProjectsLoaded] when LoadProjects is successful', () async {
-    when(() => mockGetProjects()).thenAnswer((_) async => const EitherResult(data: tProjects));
+    when(() => mockRepository.getProjects()).thenAnswer((_) async => const EitherResult(data: tProjects));
 
     final expected = [
       ProjectsLoading(),
@@ -63,7 +64,7 @@ void main() {
   });
 
   test('emits [ProjectsLoading, ProjectsError] when LoadProjects fails', () async {
-    when(() => mockGetProjects()).thenAnswer((_) async => const EitherResult(failure: ServerFailure('Error')));
+    when(() => mockRepository.getProjects()).thenAnswer((_) async => const EitherResult(failure: ServerFailure('Error')));
 
     final expected = [
       ProjectsLoading(),

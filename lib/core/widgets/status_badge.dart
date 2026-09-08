@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
 
 class StatusBadge extends StatelessWidget {
@@ -45,7 +44,8 @@ class StatusBadge extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 "Available for freelance projects",
-                style: GoogleFonts.inter(
+                style: TextStyle(
+                  fontFamily: 'sans-serif',
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
                   color: isDark ? AppColors.primaryText : AppColors.lightPrimaryText,

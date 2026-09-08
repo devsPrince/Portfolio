@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:portfoli/core/responsive/responsive_utils.dart';
+import 'package:portfolio/core/responsive/responsive_utils.dart';
 
 void main() {
   testWidgets('ResponsiveUtils correctly identifies mobile, tablet, and desktop breakpoints', (WidgetTester tester) async {

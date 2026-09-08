@@ -110,8 +110,8 @@ class PortfolioData {
   static const String developerName = "Prince Kumar";
   static const String primaryTitle = "Flutter Developer | FlutterFlow Developer | Cross-Platform App Developer";
   static const String tagline = "Senior Flutter & FlutterFlow Architect";
-  static const String profileImageUrl = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80";
-  static const String bio = "I'm a senior Flutter & FlutterFlow developer focused on building scalable, maintainable and visually polished cross-platform applications. I work across mobile, web and desktop platforms and enjoy transforming product ideas into reliable production-ready software with Clean Architecture and BLoC.";
+  static const String profileImageUrl =  "assets/images/profile_image.png";
+  static const String bio = "I'm a senior Flutter & FlutterFlow developer focused on building scalable, maintainable and visually polished cross-platform applications. I work across mobile, web and desktop platforms and enjoy transforming product ideas into reliable production-ready software with Clean Architecture, BLoC, Riverpod, Provider, and GetX.";
   static const String email = "princedev.freelance@gmail.com";
   static const String githubUrl = "https://github.com/devsPrince";
   static const String linkedinUrl = "https://www.linkedin.com/in/prince-kumar-5b2599205";
@@ -121,119 +121,322 @@ class PortfolioData {
   static const String availability = "Available for Freelance & Full-Time";
 
   static const List<String> supportingExpertise = [
-    "Flutter", "FlutterFlow", "Dart", "Firebase", "REST APIs", "Dio", "BLoC", "Clean Architecture",
+    "Flutter", "FlutterFlow", "Dart", "Firebase", "REST APIs", "Dio", "BLoC", "Riverpod", "Provider", "GetX", "Clean Architecture",
     "Android", "iOS", "Web", "macOS", "Linux", "Git", "CI/CD", "Responsive UI", "API Integration"
   ];
 
   static const List<ProjectModel> projects = [
     ProjectModel(
       id: "p1",
-      title: "SuperNanny User and Provider",
+      title: "4FC - Rap Music Battle",
       category: "Flutter",
-      description: "A dual-side childcare platform connecting parents with trained, verified nannies and babysitters. Offers flexible booking, real-time activity updates, secure payments, location tracking, and instant replacement services.",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+      description: "A global rap battle platform where users can challenge opponents, place coin bets, select judges, and use custom beats. Premium features include hidden voting, private invites, MP3 export, and exclusive challenges.",
+      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
       screenshots: [
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
       ],
-      technologies: [ "Flutter (Dart)", "Bloc", "Cubit", "Node.js," "Firebase", "Razorpay", "Google Maps API", "Google Location Tracking", "Video conferencing" , "WebSockets"],
+      technologies: ["Flutter (Dart)", "GetX", "Node.js", "Firebase", "In-App Purchases", "WebSockets"],
       platforms: ["Android", "iOS"],
       githubUrl: "https://github.com/devsPrince",
-      androidUrl: "[ANDROID APP URL]",
-      iosUrl: "[IOS APP URL]",
-      webUrl: null,
+      androidUrl: "https://play.google.com/store/apps/details?id=com.fourfc",
+      iosUrl: "https://apps.apple.com/in/app/4fc-rap-music-battle/id6468482326",
       featured: true,
-      role: "Lead Flutter Architect & Developer",
-      problem: "Legacy native apps suffered from fragmented codebases, slow release cycles, and inconsistent UX across iOS and Android.",
-      solution: "Engineered a robust cross-platform Flutter application leveraging Clean Architecture and BLoC state management, reducing code duplication by 65%.",
+      role: "Senior Flutter Developer",
+      problem: "Needed a high-performance real-time global multiplayer matchmaking and betting platform for rap battles.",
+      solution: "Engineered real-time WebSocket matching, audio beat synchronization, and secure in-app purchases with GetX architecture.",
       features: [
-        "Real-time transaction monitoring with WebSocket integration",
-        "Advanced biometric security (FaceID / Fingerprint)",
-        "Offline-first transaction queueing and local encryption",
-        "Custom high-performance financial charts and graphs"
+        "Real-time rap battle matchmaking & coin betting",
+        "Custom beat selection and MP3 exporting",
+        "Hidden voting system and private battle invites",
+        "In-app purchases for exclusive challenges"
       ],
-      architecture: "Clean Architecture (Presentation -> Domain -> Data) powered by flutter_bloc and Dio for robust networking."
+      architecture: "GetX reactive state management with modular services and WebSocket event streams."
     ),
     ProjectModel(
       id: "p2",
-      title: "SaaS Dashboard & Workflow Automation",
-      category: "FlutterFlow & Web",
-      description: "Comprehensive multi-tenant SaaS admin portal built with Flutter Web and integrated custom Dart backend services for business process automation.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      title: "SuperNanny User and Provider",
+      category: "Flutter",
+      description: "A dual-side childcare platform connecting parents with trained, verified nannies and babysitters. Offers flexible booking, real-time activity updates, secure payments, location tracking, and instant replacement services.",
+      image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
       screenshots: [
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
       ],
-      technologies: ["FlutterFlow", "Flutter Web", "Firebase", "Cloud Functions", "Tailwind CSS UI"],
-      platforms: ["Web", "macOS", "Linux"],
+      technologies: ["Flutter (Dart)", "Bloc", "Cubit", "Node.js", "Firebase", "Razorpay", "Google Maps API", "WebSockets"],
+      platforms: ["Android", "iOS"],
       githubUrl: "https://github.com/devsPrince",
-      androidUrl: null,
-      iosUrl: null,
-      webUrl: "[LIVE DEMO URL]",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.supernan&pcampaignid=web_share",
+      iosUrl: "https://apps.apple.com/in/app/supernan-the-nanny-you-need/id6460034352",
       featured: true,
-      role: "Senior FlutterFlow & Web Engineer",
-      problem: "Clients needed an ultra-fast MVP for business workflow automation with complex custom logic that standard no-code tools couldn't handle.",
-      solution: "Combined FlutterFlow rapid prototyping with custom Dart code blocks and Firebase Cloud Functions to deliver a production-ready enterprise SaaS portal.",
+      role: "Lead Flutter Architect",
+      problem: "Coordinating real-time childcare bookings and live location tracking between parents and providers securely.",
+      solution: "Built dual-sided applications (User & Provider) with BLoC architecture, Razorpay payments, and live Google Maps tracking.",
       features: [
-        "Dynamic role-based access control (RBAC)",
-        "Complex data grid with pagination, sorting, and CSV export",
-        "Automated webhook triggers and real-time dashboard updates",
-        "Fully responsive layout optimized for desktop and tablet displays"
+        "Flexible nanny booking and real-time activity updates",
+        "Live location tracking and instant replacement services",
+        "Secure payments via Razorpay integration",
+        "In-app video conferencing and instant chat via WebSockets"
       ],
-      architecture: "Modular feature-first structure with Firebase Auth and Firestore reactive streams."
+      architecture: "Clean Architecture with BLoC state management and reactive repository streams."
     ),
     ProjectModel(
       id: "p3",
-      title: "E-Commerce & Live Streaming Marketplace",
-      category: "Mobile",
-      description: "Feature-rich mobile marketplace featuring live-stream shopping, secure payment gateways, instant push notifications, and AI product recommendations.",
-      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
+      title: "Online Stage: Music Event & Job",
+      category: "Flutter",
+      description: "An all-in-one creative platform for musicians, artists, event organizers, and live arts professionals to promote events, share content, sell products, post job opportunities, and build professional connections.",
+      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80",
       screenshots: [
-        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80"
       ],
-      technologies: ["Flutter", "Dart", "Firebase", "Agora SDK", "Stripe API", "Provider"],
-      platforms: ["Android", "iOS", "Web"],
+      technologies: ["Flutter (Dart)", "GetX", "Node.js", "Firebase", "Google Maps API", "Reel Feature", "In-App Purchases", "WebSockets"],
+      platforms: ["Android", "iOS"],
       githubUrl: "https://github.com/devsPrince",
-      androidUrl: "[ANDROID APP URL]",
-      iosUrl: "[IOS APP URL]",
-      webUrl: "[LIVE DEMO URL]",
-      featured: false,
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.onstages&hl=en_IN",
+      iosUrl: "https://apps.apple.com/in/app/online-stage-music-event-job/id6743424349",
+      featured: true,
       role: "Senior Cross-Platform Developer",
-      problem: "High latency during live video broadcasts and checkout drop-offs plagued the previous legacy tech stack.",
-      solution: "Integrated Agora RTC for ultra-low latency live streaming and optimized checkout flows with Stripe and Apple/Google Pay.",
+      problem: "Artists and event planners lacked a dedicated networking and event management marketplace.",
+      solution: "Developed a feature-dense platform supporting media reels, job postings, event ticketing, and real-time chat.",
       features: [
-        "Interactive live video streaming with real-time chat & reactions",
-        "Seamless cart and checkout with multiple payment providers",
-        "Personalized push notifications via Firebase Cloud Messaging",
-        "Advanced search filters with instant debouncing"
+        "Music event promotion and ticket booking",
+        "Short-form video reel sharing for artists",
+        "Job board for music and entertainment professionals",
+        "Real-time networking and chat via WebSockets"
       ],
-      architecture: "Repository pattern with cached local database and cloud sync."
+      architecture: "GetX controller pattern with reactive Firebase Firestore bindings."
     ),
     ProjectModel(
       id: "p4",
-      title: "Healthcare Tele-Consultation App",
-      category: "Firebase",
-      description: "HIPAA-compliant telemedicine application connecting patients with certified medical professionals through secure video calls and encrypted chat.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+      title: "Samtawad",
+      category: "Flutter",
+      description: "A spiritual app offering access to Samtavad philosophy through books, audio, and video content, guiding users toward eternal peace and self-realization following equanimity teachings.",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80",
       screenshots: [
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80"
       ],
-      technologies: ["Flutter", "Dart", "BLoC", "WebRTC", "Firebase Firestore", "Cloud Functions"],
-      platforms: ["Android", "iOS", "Web"],
+      technologies: ["Flutter (Dart)", "setState", "Node.js", "Firebase", "Video/Audio Streaming"],
+      platforms: ["Android", "iOS"],
       githubUrl: "https://github.com/devsPrince",
-      androidUrl: "[ANDROID APP URL]",
-      iosUrl: "[IOS APP URL]",
-      webUrl: null,
+      androidUrl: "https://play.google.com/store/apps/details?id=com.pro.samta",
+      iosUrl: "https://apps.apple.com/in/app/samtawad/id1658548280",
+      featured: false,
+      role: "Flutter Developer",
+      problem: "Delivering smooth audio and video streaming of spiritual discourses across mobile devices.",
+      solution: "Implemented robust media playback pipelines with Firebase backend and clean streaming architecture.",
+      features: [
+        "Digital library of philosophical books and publications",
+        "High-quality audio and video streaming of discourses",
+        "Daily quotes and mindfulness reflections",
+        "Clean, distraction-free reading UI"
+      ],
+      architecture: "Modular widget structure with optimized media streaming controllers."
+    ),
+    ProjectModel(
+      id: "p5",
+      title: "Party Plan (User & Provider)",
+      category: "Flutter",
+      description: "A two-sided event planning platform connecting users with verified local professionals across 50+ service categories. Users can browse, book, and post event jobs, while providers can list services and get unlimited leads.",
+      image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1200&q=80",
+      screenshots: [
+        "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800&q=80"
+      ],
+      technologies: ["Flutter (Dart)", "GetX", "Node.js", "Firebase", "In-App Purchases", "WebSockets"],
+      platforms: ["Android", "iOS"],
+      githubUrl: "https://github.com/devsPrince",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.partyplans",
+      iosUrl: "https://apps.apple.com/in/app/partyplans-find-event-pros/id6618148968",
+      featured: true,
+      role: "Lead Mobile Developer",
+      problem: "Coordinating event planners and service providers with lead generation and white-labeling.",
+      solution: "Built dual-sided apps (User & Provider) with GetX, secure messaging, and flexible job posting workflows.",
+      features: [
+        "Browse and book event pros across 50+ categories",
+        "Job posting and bidding for event services",
+        "Provider lead generation and white-label tools",
+        "Real-time chat and quote negotiation"
+      ],
+      architecture: "GetX state management with modular dependency injection."
+    ),
+    ProjectModel(
+      id: "p6",
+      title: "Muslims Map",
+      category: "Flutter",
+      description: "A community-driven platform helping users discover and support Muslim-owned businesses, places of worship, events, and services in non-Muslim countries with interactive maps and reviews.",
+      image: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80",
+      screenshots: [
+        "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
+      ],
+      technologies: ["Flutter (Dart)", "GetX", "Node.js", "Firebase", "Google Maps API", "In-App Purchases"],
+      platforms: ["Android", "iOS"],
+      githubUrl: "https://github.com/devsPrince",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.muslimsmap",
+      iosUrl: "https://apps.apple.com/in/app/muslims-map/id6504747059",
+      featured: false,
+      role: "Senior Flutter Developer",
+      problem: "Making it easy for communities to discover verified businesses and mosques abroad.",
+      solution: "Integrated Google Maps API with custom clustering markers, user reviews, and business listing management.",
+      features: [
+        "Interactive map discovery of verified businesses and mosques",
+        "Community reviews and ratings",
+        "Business owner listing and verification portal",
+        "Promoted placement via in-app purchases"
+      ],
+      architecture: "GetX reactive state management with Google Maps clustering logic."
+    ),
+    ProjectModel(
+      id: "p7",
+      title: "Black Primacy",
+      category: "Flutter",
+      description: "A global platform for discovering and supporting Black-owned businesses, featuring interactive maps with custom markers, reviews, and direct contact details.",
+      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80",
+      screenshots: [
+        "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80"
+      ],
+      technologies: ["Flutter (Dart)", "Provider", "Node.js", "Firebase", "Google Maps API", "In-App Purchases"],
+      platforms: ["Android", "iOS"],
+      githubUrl: "https://github.com/devsPrince",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.blackprimacy",
+      iosUrl: "https://apps.apple.com/in/app/black-primacy/id1604784917",
+      featured: false,
+      role: "Senior Flutter Developer",
+      problem: "Building a searchable directory and interactive map for Black-owned enterprises.",
+      solution: "Implemented Provider state management with geo-spatial queries and Google Maps place details.",
+      features: [
+        "Geo-localized business discovery map",
+        "Detailed shop profiles and contact information",
+        "User reviews and community curation",
+        "Monetized business promotion features"
+      ],
+      architecture: "Provider pattern with repository abstraction over Firebase and Google Maps services."
+    ),
+    ProjectModel(
+      id: "p8",
+      title: "Ownitoo Marketplace",
+      category: "Flutter",
+      description: "A versatile marketplace platform offering fixed-price sales, auction-style bidding, and a unique co-ownership option for shared asset purchases, alongside digital sticker trading.",
+      image: "https://images.unsplash.com/photo-1556742049-0a67d553c2a5?auto=format&fit=crop&w=1200&q=80",
+      screenshots: [
+        "https://images.unsplash.com/photo-1556742049-0a67d553c2a5?auto=format&fit=crop&w=800&q=80"
+      ],
+      technologies: ["Flutter (Dart)", "Provider", "Node.js", "Firebase", "Stripe Payment Gateway"],
+      platforms: ["Android", "iOS"],
+      githubUrl: "https://github.com/devsPrince",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.ownitoo&pcampaignid=web_share",
+      iosUrl: "https://apps.apple.com/in/app/ownitoo/id6448990297",
+      featured: false,
+      role: "Cross-Platform Developer",
+      problem: "Creating complex auction bidding and co-ownership splitting logic in a mobile marketplace.",
+      solution: "Developed real-time bidding counters, co-ownership smart workflows, and secure Stripe payment integrations.",
+      features: [
+        "Fixed-price e-commerce and live auction bidding",
+        "Co-ownership fractional asset purchasing workflow",
+        "Digital sticker marketplace and trading",
+        "Secure checkout with Stripe"
+      ],
+      architecture: "Provider state management with secure payment gateway bindings."
+    ),
+    ProjectModel(
+      id: "p9",
+      title: "Beyond Bags (Cornhole Companion)",
+      category: "Flutter",
+      description: "A specialized cornhole companion app focused on tracking attempts and scores, converting them into clear charts, averages, streaks, and performance metrics without social clutter.",
+      image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80",
+      screenshots: [
+        "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80"
+      ],
+      technologies: ["Flutter (Dart)", "GetX", "Hive", "SQLite", "Charts (Syncfusion / fl_chart)", "Math & Stats Engine"],
+      platforms: ["Android", "iOS"],
+      githubUrl: "https://github.com/devsPrince",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.beyondBoards",
+      iosUrl: "https://apps.apple.com/in/app/beyond-boards-and-bags/id6569248365",
       featured: false,
       role: "Lead Mobile Developer",
-      problem: "Strict security and low-latency audio/video requirements demanded a bulletproof architecture.",
-      solution: "Implemented WebRTC protocol with end-to-end encrypted Firestore messaging and stringent access policies.",
+      problem: "Providing fast, offline-first statistical data analysis and graph rendering for athletes.",
+      solution: "Engineered local Hive database caching with custom statistical algorithms and dynamic chart plotting.",
       features: [
-        "Secure one-on-one HD video consultations",
-        "Encrypted prescription sharing and medical history logs",
-        "Appointment booking calendar with automated push reminders",
-        "Multi-language support for international patients"
+        "Offline-first score and attempt tracking",
+        "Advanced performance charts, averages, and streak graphs",
+        "Custom statistical calculation engine",
+        "Lightweight and lightning-fast local storage"
       ],
-      architecture: "Clean Architecture with strict domain models and unit-tested use cases."
+      architecture: "GetX controller architecture with local-first Hive storage repository."
+    ),
+    ProjectModel(
+      id: "p10",
+      title: "Vigour Media",
+      category: "Flutter",
+      description: "A comprehensive health and lifestyle content app offering access to eMagazines, online bookings, wellness benefits programs, healthy recipes, guided workouts, podcasts, articles, and health calculators.",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80",
+      screenshots: [
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80"
+      ],
+      technologies: ["Flutter (Dart)", "Firebase", "REST APIs"],
+      platforms: ["Android", "iOS"],
+      githubUrl: "https://github.com/devsPrince",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.vigourmedia",
+      iosUrl: "https://apps.apple.com/in/app/vigour-media/id6446580465",
+      featured: false,
+      role: "Flutter Developer",
+      problem: "Aggregating diverse wellness media content (magazines, audio podcasts, calculators) into a unified mobile experience.",
+      solution: "Built a modular content delivery app with eMagazine PDF readers, podcast streaming, and health calculators.",
+      features: [
+        "Digital eMagazine reader and wellness articles",
+        "Interactive health calculators and workout guides",
+        "Healthy recipe database and podcast streaming",
+        "Online booking for wellness programs"
+      ],
+      architecture: "Feature-first clean repository structure with API content caching."
+    ),
+    ProjectModel(
+      id: "p11",
+      title: "Whiter Car & Bike Wash (User & Partner)",
+      category: "Flutter",
+      description: "An on-demand doorstep car and bike cleaning service app featuring live tracking, eco-friendly options, secure Razorpay payments, and dedicated partner management tools.",
+      image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80",
+      screenshots: [
+        "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
+      ],
+      technologies: ["Flutter (Dart)", "GetX", "Node.js", "MongoDB", "Google Maps API", "Razorpay", "Hive", "Firebase"],
+      platforms: ["Android", "iOS"],
+      githubUrl: "https://github.com/devsPrince",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.whitler&pcampaignid=web_share",
+      iosUrl: "https://apps.apple.com/in/app/whiter-car-bike-wash/id6740070569",
+      featured: true,
+      role: "Lead Full-Stack Mobile Architect",
+      problem: "Coordinating on-demand doorstep vehicle washing with live washer tracking and scheduling.",
+      solution: "Built dual apps (Customer & Partner) with live Google Maps tracking, MongoDB backend, and Razorpay payments.",
+      features: [
+        "On-demand doorstep car and bike wash booking",
+        "Live washer tracking on Google Maps",
+        "Eco-friendly wash options and subscription plans",
+        "Partner assignment and earnings dashboard"
+      ],
+      architecture: "GetX reactive controllers with MongoDB and Firebase real-time sync."
+    ),
+    ProjectModel(
+      id: "p12",
+      title: "Tahda Baby",
+      category: "Flutter",
+      description: "A specialized platform connecting families with culturally sensitive, empathetic professionals throughout fertility, pregnancy, and birthing journeys, ensuring holistic support.",
+      image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80",
+      screenshots: [
+        "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80"
+      ],
+      technologies: ["Flutter (Dart)", "GetX", "Node.js", "MongoDB", "Razorpay", "WebRTC", "Firebase"],
+      platforms: ["Android", "iOS"],
+      githubUrl: "https://github.com/devsPrince",
+      androidUrl: "https://play.google.com/store/apps/details?id=com.app.thadababy",
+      iosUrl: "https://apps.apple.com/in/app/tahda-baby/id6673907786",
+      featured: false,
+      role: "Senior Mobile Architect",
+      problem: "Providing secure, HIPAA-compliant telehealth consultations for pregnancy and fertility care.",
+      solution: "Integrated WebRTC video consultations, secure messaging, and Razorpay appointment bookings.",
+      features: [
+        "Culturally sensitive pregnancy and fertility care matching",
+        "Secure one-on-one video consultations via WebRTC",
+        "Appointment scheduling and milestone tracking",
+        "Encrypted messaging and resource library"
+      ],
+      architecture: "GetX architecture with WebRTC video signaling and MongoDB backend."
     ),
   ];
 
@@ -294,6 +497,9 @@ class PortfolioData {
 
     // Architecture
     SkillModel(name: "BLoC / Cubit", category: "Architecture", level: "Primary", iconName: "layers"),
+    SkillModel(name: "Riverpod", category: "Architecture", level: "Primary", iconName: "layers"),
+    SkillModel(name: "Provider", category: "Architecture", level: "Primary", iconName: "layers"),
+    SkillModel(name: "GetX", category: "Architecture", level: "Advanced", iconName: "layers"),
     SkillModel(name: "Clean Architecture", category: "Architecture", level: "Primary", iconName: "grid"),
     SkillModel(name: "SOLID Principles", category: "Architecture", level: "Primary", iconName: "shield"),
     SkillModel(name: "Repository Pattern", category: "Architecture", level: "Primary", iconName: "database"),

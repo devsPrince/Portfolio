@@ -32,7 +32,13 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey _servicesKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
+  String _activeSection = "Home";
+
   void _scrollToSection(String section) {
+    setState(() {
+      _activeSection = section;
+    });
+
     GlobalKey? key;
     switch (section) {
       case "Home":
@@ -70,12 +76,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-
       child: Scaffold(
         appBar: Navbar(
           onNavTap: _scrollToSection,
           isDark: widget.isDark,
           onThemeToggle: widget.onThemeToggle,
+          activeSection: _activeSection,
         ),
         body: SafeArea(
           child: Stack(

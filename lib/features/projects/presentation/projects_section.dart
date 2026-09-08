@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../core/animations/animated_reveal.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/portfolio_data.dart';
@@ -28,75 +28,99 @@ class ProjectsSection extends StatelessWidget {
           final cubit = context.watch<ProjectsCubit>();
           final state = cubit.state;
 
-          return Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: mobile ? 20 : 64,
-              vertical: 60,
-            ),
-            child: Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 1300),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SectionHeading(
-                      title: "Selected Projects",
-                      subtitle: "Real products, applications and architectures I've designed and developed.",
-                      isDark: isDark,
-                    ),
-                    const SizedBox(height: 32),
-
-                    // Filter Chips
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: filters.map((filter) {
-                          final isSelected = state.selectedFilter == filter;
-                          return Padding(
-                            padding: const EdgeInsets.only(right: 12),
-                            child: ChoiceChip(
-                              label: Text(filter),
-                              selected: isSelected,
-                              onSelected: (_) => cubit.filterProjects(filter),
-                              selectedColor: AppColors.accent,
-                              backgroundColor: isDark ? AppColors.cardBg : AppColors.lightCardBg,
-                              labelStyle: GoogleFonts.plusJakartaSans(
-                                fontWeight: FontWeight.w600,
-                                color: isSelected
-                                    ? Colors.white
-                                    : (isDark ? AppColors.primaryText : AppColors.lightPrimaryText),
-                              ),
-                              side: BorderSide(
-                                color: isSelected ? AppColors.accent : (isDark ? AppColors.border : AppColors.lightBorder),
-                              ),
-                            ),
-                          );
-                        }).toList(),
+          return AnimatedReveal(
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: mobile ? 20 : 64,
+                vertical: 60,
+              ),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 1300),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SectionHeading(
+                        title: "Selected Projects",
+                        subtitle: "Real products, applications and architectures I've designed and developed.",
+                        isDark: isDark,
                       ),
-                    ),
-                    const SizedBox(height: 40),
+                      const SizedBox(height: 32),
 
-                    // Projects Grid / Showcase
-                    ListView.separated(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: state.filteredProjects.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 32),
-                      itemBuilder: (context, index) {
-                        final project = state.filteredProjects[index];
-                        return _ProjectCard(
-                          project: project,
-                          isDark: isDark,
-                          onCaseStudy: () {
-                            showDialog(
-                              context: context,
-                              builder: (_) => CaseStudyModal(project: project, isDark: isDark),
+                      // Filter Chips (Animated Navbar Style)
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: filters.map((filter) {
+                            final isSelected = state.selectedFilter == filter;
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 12),
+                              child: MouseRegion(
+                                cursor: SystemMouseCursors.click,
+                                child: GestureDetector(
+                                  onTap: () => cubit.filterProjects(filter),
+                                  child: AnimatedContainer(
+                                    duration: const Duration(milliseconds: 250),
+                                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                                    decoration: BoxDecoration(
+                                      color: isSelected ? AppColors.accent.withOpacity(0.2) : (isDark ? AppColors.cardBg : AppColors.lightCardBg),
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                        color: isSelected ? AppColors.accent : (isDark ? AppColors.border : AppColors.lightBorder),
+                                        width: isSelected ? 1.5 : 1,
+                                      ),
+                                      boxShadow: isSelected
+                                          ? [
+                                              BoxShadow(
+                                                color: AppColors.accent.withOpacity(0.25),
+                                                blurRadius: 12,
+                                                spreadRadius: 1,
+                                              ),
+                                            ]
+                                          : [],
+                                    ),
+                                    child: Text(
+                                      filter,
+                                      style: TextStyle(
+                                        fontFamily: 'sans-serif',
+                                        fontSize: 14,
+                                        fontWeight: isSelected ? FontWeight.w700 : FontWeight.w600,
+                                        color: isSelected
+                                            ? AppColors.accent
+                                            : (isDark ? AppColors.primaryText : AppColors.lightPrimaryText),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             );
-                          },
-                        );
-                      },
-                    ),
-                  ],
+                          }).toList(),
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+
+                      // Projects Grid / Showcase
+                      ListView.separated(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: state.filteredProjects.length,
+                        separatorBuilder: (_, __) => const SizedBox(height: 32),
+                        itemBuilder: (context, index) {
+                          final project = state.filteredProjects[index];
+                          return _ProjectCard(
+                            project: project,
+                            isDark: isDark,
+                            onCaseStudy: () {
+                              showDialog(
+                                context: context,
+                                builder: (_) => CaseStudyModal(project: project, isDark: isDark),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -167,7 +191,8 @@ class _ProjectCard extends StatelessWidget {
                       ),
                       child: Text(
                         project.category,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: TextStyle(
+                          fontFamily: 'sans-serif',
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                           color: AppColors.accent,
@@ -183,7 +208,8 @@ class _ProjectCard extends StatelessWidget {
                         ),
                         child: Text(
                           "Featured Project",
-                          style: GoogleFonts.plusJakartaSans(
+                          style: TextStyle(
+                            fontFamily: 'sans-serif',
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             color: AppColors.success,
@@ -215,7 +241,12 @@ class _ProjectCard extends StatelessWidget {
                       ),
                       child: Text(
                         tech,
-                        style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.secondaryAccent),
+                        style: TextStyle(
+                          fontFamily: 'sans-serif',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.secondaryAccent,
+                        ),
                       ),
                     );
                   }).toList(),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/portfolio_data.dart';
@@ -35,6 +34,12 @@ class HeroSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // In mobile view, show profile card first or integrated in column
+              if (mobile) ...[
+                _buildProfileCard(isDark),
+                const SizedBox(height: 40),
+              ],
+
               // Left Content
               Expanded(
                 flex: mobile ? 0 : 6,
@@ -57,7 +62,8 @@ class HeroSection extends StatelessWidget {
                           Flexible(
                             child: Text(
                               "AVAILABLE FOR FREELANCE & FULL-TIME OPPORTUNITIES",
-                              style: GoogleFonts.plusJakartaSans(
+                              style: TextStyle(
+                                fontFamily: 'sans-serif',
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                                 color: AppColors.accent,
@@ -74,7 +80,7 @@ class HeroSection extends StatelessWidget {
                     RichText(
                       text: TextSpan(
                         style: AppTextStyles.heroHeading(isDark).copyWith(
-                          fontSize: mobile ? 40 : 62,
+                          fontSize: mobile ? 38 : 62,
                         ),
                         children: const [
                           TextSpan(text: "Building Scalable Digital Experiences with "),
@@ -154,100 +160,13 @@ class HeroSection extends StatelessWidget {
                   ],
                 ),
               ),
-              if (mobile) const SizedBox(height: 50),
 
-              // Right Visual: Professional Profile Photo & Personal Details Card
+              // Right Visual: Professional Profile Photo & Personal Details Card (Desktop)
               if (!mobile)
                 Expanded(
                   flex: 5,
                   child: Center(
-                    child: Container(
-                      padding: const EdgeInsets.all(32),
-                      decoration: BoxDecoration(
-                        color: isDark ? AppColors.cardBg : AppColors.lightCardBg,
-                        borderRadius: BorderRadius.circular(24),
-                        border: Border.all(
-                          color: isDark ? AppColors.border : AppColors.lightBorder,
-                          width: 1,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.accent.withOpacity(0.15),
-                            blurRadius: 40,
-                            spreadRadius: 5,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          // Profile Photo with Glowing Ring
-                          Container(
-                            padding: const EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: const LinearGradient(
-                                colors: [AppColors.accent, AppColors.secondaryAccent],
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.accent.withOpacity(0.3),
-                                  blurRadius: 20,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                            ),
-                            child: CircleAvatar(
-                              radius: 75,
-                              backgroundImage: NetworkImage(PortfolioData.profileImageUrl),
-                              backgroundColor: AppColors.primaryBg,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-
-                          // Name & Title
-                          Text(
-                            PortfolioData.developerName,
-                            style: AppTextStyles.cardHeading(isDark).copyWith(fontSize: 24, fontWeight: FontWeight.w700),
-                          ),
-                          const SizedBox(height: 6),
-                          Text(
-                            PortfolioData.tagline,
-                            style: GoogleFonts.plusJakartaSans(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.accent,
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          const Divider(),
-                          const SizedBox(height: 12),
-
-                          // Personal Details Rows
-                          _detailRow("Location", PortfolioData.location, isDark),
-                          const SizedBox(height: 8),
-                          _detailRow("Experience", PortfolioData.experienceYears, isDark),
-                          const SizedBox(height: 8),
-                          _detailRow("Specialization", "Cross-Platform & Clean Architecture", isDark),
-                          const SizedBox(height: 8),
-                          _detailRow("Status", "Available for Hire", isDark, isSuccess: true),
-
-                          const SizedBox(height: 20),
-
-                          // Tech Badges Row
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              _techBadge("Flutter", Icons.phone_android, AppColors.secondaryAccent),
-                              const SizedBox(width: 8),
-                              _techBadge("BLoC", Icons.layers, AppColors.accent),
-                              const SizedBox(width: 8),
-                              _techBadge("Firebase", Icons.local_fire_department, Colors.orange),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: _buildProfileCard(isDark),
                   ),
                 ),
             ],
@@ -257,17 +176,138 @@ class HeroSection extends StatelessWidget {
     );
   }
 
-  Widget _detailRow(String label, String value, bool isDark, {bool isSuccess = false}) {
+  Widget _buildProfileCard(bool isDark) {
+    return Container(
+      padding: const EdgeInsets.all(32),
+      decoration: BoxDecoration(
+        color: isDark ? AppColors.cardBg.withOpacity(0.9) : AppColors.lightCardBg,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: AppColors.accent.withOpacity(0.3),
+          width: 1.5,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.accent.withOpacity(0.2),
+            blurRadius: 30,
+            spreadRadius: 2,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Profile Photo with Glowing Aura & Verified Badge
+          Stack(
+            alignment: Alignment.bottomRight,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: const LinearGradient(
+                    colors: [AppColors.accent, AppColors.secondaryAccent],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.accent.withOpacity(0.4),
+                      blurRadius: 25,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                ),
+                child: CircleAvatar(
+                  radius: 75,
+                  backgroundImage: PortfolioData.profileImageUrl.startsWith('assets/')
+                      ? AssetImage(PortfolioData.profileImageUrl) as ImageProvider
+                      : NetworkImage(PortfolioData.profileImageUrl),
+                  backgroundColor: AppColors.primaryBg,
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(6),
+                decoration: const BoxDecoration(
+                  color: AppColors.success,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.check, size: 16, color: Colors.white),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+
+          // Name & Title
+          Text(
+            PortfolioData.developerName,
+            style: AppTextStyles.cardHeading(isDark).copyWith(fontSize: 26, fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 6),
+          ShaderMask(
+            shaderCallback: (bounds) => const LinearGradient(
+              colors: [AppColors.accent, AppColors.secondaryAccent],
+            ).createShader(bounds),
+            child: Text(
+              PortfolioData.tagline,
+              style: TextStyle(
+                fontFamily: 'sans-serif',
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          const SizedBox(height: 18),
+          const Divider(height: 1),
+          const SizedBox(height: 18),
+
+          // Personal Details Rows with Icons
+          _detailRow(Icons.location_on_outlined, "Location", PortfolioData.location, isDark),
+          const SizedBox(height: 12),
+          _detailRow(Icons.work_outline, "Experience", PortfolioData.experienceYears, isDark),
+          const SizedBox(height: 12),
+          _detailRow(Icons.architecture, "Specialization", "Cross-Platform & Clean Arch", isDark),
+          const SizedBox(height: 12),
+          _detailRow(Icons.fiber_manual_record, "Status", "Available for Hire", isDark, isSuccess: true),
+
+          const SizedBox(height: 22),
+
+          // Tech Badges Wrap
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            alignment: WrapAlignment.center,
+            children: [
+              _techBadge("Flutter", Icons.phone_android, AppColors.secondaryAccent),
+              _techBadge("FlutterFlow", Icons.flash_on, AppColors.accent),
+              _techBadge("BLoC / Arch", Icons.layers, AppColors.success),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _detailRow(IconData icon, String label, String value, bool isDark, {bool isSuccess = false}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          label,
-          style: AppTextStyles.metadata(isDark),
+        Row(
+          children: [
+            Icon(icon, size: 16, color: AppColors.accent),
+            const SizedBox(width: 8),
+            Text(
+              label,
+              style: AppTextStyles.metadata(isDark),
+            ),
+          ],
         ),
         Text(
           value,
-          style: GoogleFonts.inter(
+          style: TextStyle(
+            fontFamily: 'sans-serif',
             fontSize: 13,
             fontWeight: FontWeight.w600,
             color: isSuccess ? AppColors.success : (isDark ? AppColors.primaryText : AppColors.lightPrimaryText),
@@ -288,7 +328,8 @@ class HeroSection extends StatelessWidget {
             const SizedBox(width: 6),
             Text(
               label,
-              style: GoogleFonts.inter(
+              style: TextStyle(
+                fontFamily: 'sans-serif',
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: isDark ? AppColors.primaryText : AppColors.lightPrimaryText,
@@ -315,7 +356,8 @@ class HeroSection extends StatelessWidget {
           const SizedBox(width: 4),
           Text(
             title,
-            style: GoogleFonts.plusJakartaSans(
+            style: TextStyle(
+              fontFamily: 'sans-serif',
               fontSize: 12,
               fontWeight: FontWeight.w600,
               color: color,

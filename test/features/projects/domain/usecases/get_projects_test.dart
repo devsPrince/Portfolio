@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:portfoli/features/projects/domain/entities/project.dart';
-import 'package:portfoli/features/projects/domain/repositories/project_repository.dart';
-import 'package:portfoli/features/projects/domain/usecases/get_projects.dart';
+import 'package:portfolio/features/projects/domain/entities/project.dart';
+import 'package:portfolio/features/projects/domain/repositories/project_repository.dart';
+import 'package:portfolio/features/projects/domain/usecases/get_projects.dart';
 
 class MockProjectRepository extends Mock implements ProjectRepository {}
 

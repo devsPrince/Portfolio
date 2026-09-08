@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
 
 class AppTheme {
@@ -14,9 +13,10 @@ class AppTheme {
         secondary: AppColors.secondaryAccent,
         surface: AppColors.cardBg,
       ),
-      textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme).apply(
+      textTheme: ThemeData.dark().textTheme.apply(
         bodyColor: AppColors.primaryText,
         displayColor: AppColors.primaryText,
+        fontFamily: 'sans-serif',
       ),
       dividerColor: AppColors.border,
     );
@@ -33,9 +33,10 @@ class AppTheme {
         secondary: AppColors.secondaryAccent,
         surface: AppColors.lightCardBg,
       ),
-      textTheme: GoogleFonts.interTextTheme(ThemeData.light().textTheme).apply(
+      textTheme: ThemeData.light().textTheme.apply(
         bodyColor: AppColors.lightPrimaryText,
         displayColor: AppColors.lightPrimaryText,
+        fontFamily: 'sans-serif',
       ),
       dividerColor: AppColors.lightBorder,
     );

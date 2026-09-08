@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/portfolio_data.dart';
@@ -61,7 +60,8 @@ class CaseStudyModal extends StatelessWidget {
                       ),
                       child: Text(
                         project.category,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: TextStyle(
+                          fontFamily: 'sans-serif',
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                           color: AppColors.accent,
@@ -72,7 +72,8 @@ class CaseStudyModal extends StatelessWidget {
                     Expanded(
                       child: Text(
                         project.title,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: TextStyle(
+                          fontFamily: 'sans-serif',
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                           color: isDark ? AppColors.primaryText : AppColors.lightPrimaryText,
@@ -236,7 +237,8 @@ class CaseStudyModal extends StatelessWidget {
                             ),
                             child: Text(
                               tech,
-                              style: GoogleFonts.inter(
+                              style: TextStyle(
+                                fontFamily: 'sans-serif',
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.accent,
@@ -301,7 +303,8 @@ class CaseStudyModal extends StatelessWidget {
   Widget _buildSectionTitle(String title, bool isDark) {
     return Text(
       title,
-      style: GoogleFonts.plusJakartaSans(
+      style: TextStyle(
+        fontFamily: 'sans-serif',
         fontSize: 18,
         fontWeight: FontWeight.w700,
         color: isDark ? AppColors.primaryText : AppColors.lightPrimaryText,
@@ -326,7 +329,8 @@ class CaseStudyModal extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 title,
-                style: GoogleFonts.plusJakartaSans(
+                style: TextStyle(
+                  fontFamily: 'sans-serif',
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
                   color: color,
@@ -356,7 +360,8 @@ class CaseStudyModal extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.center,
-        style: GoogleFonts.plusJakartaSans(
+        style: TextStyle(
+          fontFamily: 'sans-serif',
           fontSize: 13,
           fontWeight: FontWeight.w600,
           color: AppColors.accent,

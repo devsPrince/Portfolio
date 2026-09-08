@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../core/animations/animated_reveal.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/portfolio_data.dart';
@@ -21,68 +21,70 @@ class ContactSection extends StatelessWidget {
 
     return BlocProvider(
       create: (_) => ContactCubit(),
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: mobile ? 20 : 64,
-          vertical: 60,
-        ),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1300),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SectionHeading(
-                  title: "Let's Build Something Great",
-                  subtitle: "Have an idea, product or application you want to build? Let's talk.",
-                  isDark: isDark,
-                ),
-                const SizedBox(height: 40),
-                Flex(
-                  direction: mobile ? Axis.vertical : Axis.horizontal,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Left Info
-                    Expanded(
-                      flex: mobile ? 0 : 5,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Get in touch",
-                            style: AppTextStyles.cardHeading(isDark).copyWith(fontSize: 22),
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your product vision.",
-                            style: AppTextStyles.body(isDark),
-                          ),
-                          const SizedBox(height: 32),
-                          _contactInfoTile(Icons.email_outlined, "Email", PortfolioData.email, () => UrlLauncherUtil.launchEmail(PortfolioData.email), isDark),
-                          const SizedBox(height: 16),
-                          _contactInfoTile(Icons.code, "GitHub", PortfolioData.githubUrl, () => UrlLauncherUtil.launchURL(PortfolioData.githubUrl), isDark),
-                          const SizedBox(height: 16),
-                          _contactInfoTile(Icons.business_center_outlined, "LinkedIn", PortfolioData.linkedinUrl, () => UrlLauncherUtil.launchURL(PortfolioData.linkedinUrl), isDark),
-                          const SizedBox(height: 16),
-                          _contactInfoTile(Icons.phone_outlined, "Phone", PortfolioData.phone, () {}, isDark),
-                        ],
+      child: AnimatedReveal(
+        child: Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: mobile ? 20 : 64,
+            vertical: 60,
+          ),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1300),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SectionHeading(
+                    title: "Let's Build Something Great",
+                    subtitle: "Have an idea, product or application you want to build? Let's talk.",
+                    isDark: isDark,
+                  ),
+                  const SizedBox(height: 40),
+                  Flex(
+                    direction: mobile ? Axis.vertical : Axis.horizontal,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Left Info
+                      Expanded(
+                        flex: mobile ? 0 : 5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Get in touch",
+                              style: AppTextStyles.cardHeading(isDark).copyWith(fontSize: 22),
+                            ),
+                            const SizedBox(height: 16),
+                            Text(
+                              "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your product vision.",
+                              style: AppTextStyles.body(isDark),
+                            ),
+                            const SizedBox(height: 32),
+                            _contactInfoTile(Icons.email_outlined, "Email", PortfolioData.email, () => UrlLauncherUtil.launchEmail(PortfolioData.email), isDark),
+                            const SizedBox(height: 16),
+                            _contactInfoTile(Icons.code, "GitHub", PortfolioData.githubUrl, () => UrlLauncherUtil.launchURL(PortfolioData.githubUrl), isDark),
+                            const SizedBox(height: 16),
+                            _contactInfoTile(Icons.business_center_outlined, "LinkedIn", PortfolioData.linkedinUrl, () => UrlLauncherUtil.launchURL(PortfolioData.linkedinUrl), isDark),
+                            const SizedBox(height: 16),
+                            _contactInfoTile(Icons.phone_outlined, "Phone", PortfolioData.phone, () {}, isDark),
+                          ],
+                        ),
                       ),
-                    ),
-                    if (mobile) const SizedBox(height: 40),
-                    if (!mobile) const SizedBox(width: 48),
+                      if (mobile) const SizedBox(height: 40),
+                      if (!mobile) const SizedBox(width: 48),
 
-                    // Right Form
-                    Expanded(
-                      flex: mobile ? 0 : 7,
-                      child: GlassCard(
-                        isDark: isDark,
-                        padding: EdgeInsets.all(mobile ? 24 : 36),
-                        child: const _ContactFormView(),
+                      // Right Form
+                      Expanded(
+                        flex: mobile ? 0 : 7,
+                        child: GlassCard(
+                          isDark: isDark,
+                          padding: EdgeInsets.all(mobile ? 24 : 36),
+                          child: const _ContactFormView(),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -115,7 +117,8 @@ class ContactSection extends StatelessWidget {
                   const SizedBox(height: 2),
                   Text(
                     value,
-                    style: GoogleFonts.inter(
+                    style: TextStyle(
+                      fontFamily: 'sans-serif',
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
                       color: isDark ? AppColors.primaryText : AppColors.lightPrimaryText,

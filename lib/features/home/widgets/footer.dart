@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/portfolio_data.dart';
@@ -45,7 +44,8 @@ class Footer extends StatelessWidget {
                     children: [
                       Text(
                         PortfolioData.developerName,
-                        style: GoogleFonts.plusJakartaSans(
+                        style: TextStyle(
+                          fontFamily: 'sans-serif',
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                           color: isDark ? AppColors.primaryText : AppColors.lightPrimaryText,
@@ -121,7 +121,8 @@ class Footer extends StatelessWidget {
         onTap: onTap,
         child: Text(
           title,
-          style: GoogleFonts.inter(
+          style: TextStyle(
+            fontFamily: 'sans-serif',
             fontSize: 14,
             fontWeight: FontWeight.w500,
             color: isDark ? AppColors.secondaryText : AppColors.lightSecondaryText,
