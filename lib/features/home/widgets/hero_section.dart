@@ -24,7 +24,7 @@ class HeroSection extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: mobile ? 20 : 64,
-        vertical: mobile ? 40 : 80,
+        vertical: mobile ? 20 : 40,
       ),
       child: Center(
         child: ConstrainedBox(
@@ -148,18 +148,26 @@ class HeroSection extends StatelessWidget {
                     const SizedBox(height: 36),
 
                     // Secondary Links
-                    Row(
-                      children: [
-                        _socialLink("GitHub", Icons.code, () => UrlLauncherUtil.launchURL(PortfolioData.githubUrl), isDark),
-                        const SizedBox(width: 24),
-                        _socialLink("Email", Icons.email_outlined, () => UrlLauncherUtil.launchEmail(PortfolioData.email), isDark),
-                        const SizedBox(width: 24),
-                        _socialLink("LinkedIn", Icons.business_center_outlined, () => UrlLauncherUtil.launchURL(PortfolioData.linkedinUrl), isDark),
-                      ],
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          _socialLink("GitHub", Icons.code, () => UrlLauncherUtil.launchURL(PortfolioData.githubUrl), isDark),
+                          const SizedBox(width: 24),
+                          _socialLink("GitLab", Icons.code, () => UrlLauncherUtil.launchURL(PortfolioData.gitLabUrl), isDark),
+                          const SizedBox(width: 24),
+                          _socialLink("Email", Icons.email_outlined, () => UrlLauncherUtil.launchEmail(PortfolioData.email), isDark),
+                          const SizedBox(width: 24),
+                          _socialLink("LinkedIn", Icons.business_center_outlined, () => UrlLauncherUtil.launchURL(PortfolioData.linkedinUrl), isDark),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
+
+              // Spacing between Left Content and Profile Card on Desktop
+              if (!mobile) const SizedBox(width: 60),
 
               // Right Visual: Professional Profile Photo & Personal Details Card (Desktop)
               if (!mobile)
@@ -199,43 +207,64 @@ class HeroSection extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           // Profile Photo with Glowing Aura & Verified Badge
-          Stack(
-            alignment: Alignment.bottomRight,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: const LinearGradient(
-                    colors: [AppColors.accent, AppColors.secondaryAccent],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.accent.withValues(alpha: 0.4),
-                      blurRadius: 25,
-                      spreadRadius: 5,
+          SizedBox(
+            width: 158,
+            height: 158,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  width: 158,
+                  height: 158,
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: const LinearGradient(
+                      colors: [AppColors.accent, AppColors.secondaryAccent],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
-                  ],
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.accent.withValues(alpha: 0.4),
+                        blurRadius: 25,
+                        spreadRadius: 5,
+                      ),
+                    ],
+                  ),
+                  child: CircleAvatar(
+                    radius: 73,
+                    backgroundImage: PortfolioData.profileImageUrl.startsWith('assets/')
+                        ? AssetImage(PortfolioData.profileImageUrl) as ImageProvider
+                        : NetworkImage(PortfolioData.profileImageUrl),
+                    backgroundColor: AppColors.primaryBg,
+                  ),
                 ),
-                child: CircleAvatar(
-                  radius: 75,
-                  backgroundImage: PortfolioData.profileImageUrl.startsWith('assets/')
-                      ? AssetImage(PortfolioData.profileImageUrl) as ImageProvider
-                      : NetworkImage(PortfolioData.profileImageUrl),
-                  backgroundColor: AppColors.primaryBg,
+                Positioned(
+                  right: 4,
+                  bottom: 4,
+                  child: Container(
+                    padding: const EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: AppColors.success,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: isDark ? AppColors.cardBg : AppColors.lightCardBg,
+                        width: 2.5,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.3),
+                          blurRadius: 6,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: const Icon(Icons.check, size: 16, color: Colors.white),
+                  ),
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(6),
-                decoration: const BoxDecoration(
-                  color: AppColors.success,
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.check, size: 16, color: Colors.white),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(height: 20),
 
@@ -282,7 +311,11 @@ class HeroSection extends StatelessWidget {
             children: [
               _techBadge("Flutter", Icons.phone_android, AppColors.secondaryAccent),
               _techBadge("FlutterFlow", Icons.flash_on, AppColors.accent),
-              _techBadge("BLoC / Arch", Icons.layers, AppColors.success),
+              _techBadge("Clean Arch", Icons.architecture, AppColors.success),
+              _techBadge("BLoC", Icons.layers, AppColors.secondaryAccent),
+              _techBadge("GetX", Icons.bolt, AppColors.accent),
+              _techBadge("Riverpod", Icons.water_drop, AppColors.secondaryAccent),
+              _techBadge("Provider", Icons.account_tree_outlined, AppColors.success),
             ],
           ),
         ],

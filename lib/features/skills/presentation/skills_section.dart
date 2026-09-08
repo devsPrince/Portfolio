@@ -21,7 +21,7 @@ class SkillsSection extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: mobile ? 20 : 64,
-          vertical: 60,
+          vertical: mobile ? 20 : 36,
         ),
         child: Center(
           child: ConstrainedBox(
@@ -34,7 +34,7 @@ class SkillsSection extends StatelessWidget {
                   subtitle: "Comprehensive mastery of the modern cross-platform engineering stack.",
                   isDark: isDark,
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 24),
                 ...categories.map((category) {
                   final skillsInCategory = PortfolioData.skills.where((s) => s.category == category).toList();
                   if (skillsInCategory.isEmpty) return const SizedBox.shrink();

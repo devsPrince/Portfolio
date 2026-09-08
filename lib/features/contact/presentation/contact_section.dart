@@ -25,7 +25,7 @@ class ContactSection extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(
             horizontal: mobile ? 20 : 64,
-            vertical: 60,
+            vertical: mobile ? 20 : 36,
           ),
           child: Center(
             child: ConstrainedBox(
@@ -38,7 +38,7 @@ class ContactSection extends StatelessWidget {
                     subtitle: "Have an idea, product or application you want to build? Let's talk.",
                     isDark: isDark,
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 24),
                   Flex(
                     direction: mobile ? Axis.vertical : Axis.horizontal,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,9 +63,11 @@ class ContactSection extends StatelessWidget {
                             const SizedBox(height: 16),
                             _contactInfoTile(Icons.code, "GitHub", PortfolioData.githubUrl, () => UrlLauncherUtil.launchURL(PortfolioData.githubUrl), isDark),
                             const SizedBox(height: 16),
-                            _contactInfoTile(Icons.business_center_outlined, "LinkedIn", PortfolioData.linkedinUrl, () => UrlLauncherUtil.launchURL(PortfolioData.linkedinUrl), isDark),
+                            _contactInfoTile(Icons.terminal, "GitLab", PortfolioData.gitLabUrl, () => UrlLauncherUtil.launchURL(PortfolioData.gitLabUrl), isDark),
                             const SizedBox(height: 16),
-                            _contactInfoTile(Icons.phone_outlined, "Phone", PortfolioData.phone, () {}, isDark),
+                            _contactInfoTile(Icons.business_center_outlined, "LinkedIn", PortfolioData.linkedinUrl, () => UrlLauncherUtil.launchURL(PortfolioData.linkedinUrl), isDark),
+                            // const SizedBox(height: 16),
+                            // _contactInfoTile(Icons.phone_outlined, "Phone", PortfolioData.phone, () {}, isDark),
                           ],
                         ),
                       ),

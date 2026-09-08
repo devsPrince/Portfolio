@@ -10,6 +10,7 @@ class Project extends Equatable {
   final List<String> technologies;
   final List<String> platforms;
   final String? githubUrl;
+  final String? gitLabUrl;
   final String? androidUrl;
   final String? iosUrl;
   final String? webUrl;
@@ -30,6 +31,7 @@ class Project extends Equatable {
     required this.technologies,
     required this.platforms,
     this.githubUrl,
+    this.gitLabUrl,
     this.androidUrl,
     this.iosUrl,
     this.webUrl,
@@ -52,6 +54,7 @@ class Project extends Equatable {
         technologies,
         platforms,
         githubUrl,
+        gitLabUrl,
         androidUrl,
         iosUrl,
         webUrl,

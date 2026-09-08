@@ -67,7 +67,7 @@ class Footer extends StatelessWidget {
                       _footerLink("About", () => onNavTap("About"), isDark),
                       _footerLink("Skills", () => onNavTap("Skills"), isDark),
                       _footerLink("Projects", () => onNavTap("Projects"), isDark),
-                      _footerLink("Experience", () => onNavTap("Experience"), isDark),
+                      // _footerLink("Experience", () => onNavTap("Experience"), isDark),
                       _footerLink("Services", () => onNavTap("Services"), isDark),
                       _footerLink("Contact", () => onNavTap("Contact"), isDark),
                     ],
@@ -91,7 +91,14 @@ class Footer extends StatelessWidget {
                       IconButton(
                         icon: const Icon(Icons.code, size: 18),
                         color: isDark ? AppColors.secondaryText : AppColors.lightSecondaryText,
+                        tooltip: "GitHub",
                         onPressed: () => UrlLauncherUtil.launchURL(PortfolioData.githubUrl),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.terminal, size: 18),
+                        color: isDark ? AppColors.secondaryText : AppColors.lightSecondaryText,
+                        tooltip: "GitLab",
+                        onPressed: () => UrlLauncherUtil.launchURL(PortfolioData.gitLabUrl),
                       ),
                       IconButton(
                         icon: const Icon(Icons.business_center_outlined, size: 18),

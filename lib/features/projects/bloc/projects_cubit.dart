@@ -27,13 +27,19 @@ class ProjectsCubit extends Cubit<ProjectsState> {
       filtered = PortfolioData.projects;
     } else {
       filtered = PortfolioData.projects.where((p) {
-        if (filter == "Flutter") return p.technologies.contains("Flutter");
-        if (filter == "FlutterFlow") return p.technologies.contains("FlutterFlow") || p.category.contains("FlutterFlow");
-        if (filter == "Mobile") return p.platforms.contains("Android") || p.platforms.contains("iOS");
-        if (filter == "Web") return p.platforms.contains("Web") || p.technologies.contains("Flutter Web");
-        if (filter == "Desktop") return p.platforms.contains("macOS") || p.platforms.contains("Linux");
-        if (filter == "Firebase") return p.technologies.contains("Firebase");
-        if (filter == "Freelance") return true; // all freelance ready
+        if (filter == "Flutter") {
+          return p.category == "Flutter" ||
+              p.technologies.any((t) => t.toLowerCase().contains("flutter") && !t.toLowerCase().contains("flutterflow"));
+        }
+        if (filter == "FlutterFlow") {
+          return p.category == "FlutterFlow" ||
+              p.technologies.any((t) => t.toLowerCase().contains("flutterflow"));
+        }
+        // if (filter == "Mobile") return p.platforms.contains("Android") || p.platforms.contains("iOS");
+        // if (filter == "Web") return p.platforms.contains("Web") || p.technologies.contains("Flutter Web");
+        // if (filter == "Desktop") return p.platforms.contains("macOS") || p.platforms.contains("Linux");
+        // if (filter == "Firebase") return p.technologies.contains("Firebase");
+        // if (filter == "Freelance") return true;
         return p.category.toLowerCase().contains(filter.toLowerCase());
       }).toList();
     }
@@ -41,7 +47,7 @@ class ProjectsCubit extends Cubit<ProjectsState> {
     emit(ProjectsState(
       selectedFilter: filter,
       selectedIndex: 0,
-      filteredProjects: filtered.isEmpty ? PortfolioData.projects : filtered,
+      filteredProjects: filtered,
     ));
   }
 

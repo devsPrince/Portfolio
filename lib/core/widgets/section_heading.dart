@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../constants/app_text_styles.dart';
-import '../constants/app_colors.dart';
 
 class SectionHeading extends StatelessWidget {
   final String title;
@@ -21,15 +20,15 @@ class SectionHeading extends StatelessWidget {
       children: [
         Row(
           children: [
-            Container(
-              width: 24,
-              height: 3,
-              decoration: BoxDecoration(
-                color: AppColors.accent,
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
-            const SizedBox(width: 12),
+            // Container(
+            //   width: 24,
+            //   height: 3,
+            //   decoration: BoxDecoration(
+            //     color: AppColors.accent,
+            //     borderRadius: BorderRadius.circular(2),
+            //   ),
+            // ),
+            // const SizedBox(width: 12),
             Expanded(
               child: Text(
                 title,
@@ -39,13 +38,10 @@ class SectionHeading extends StatelessWidget {
           ],
         ),
         if (subtitle != null) ...[
-          const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.only(left: 36),
-            child: Text(
-              subtitle!,
-              style: AppTextStyles.body(isDark),
-            ),
+          const SizedBox(height: 6),
+          Text(
+            subtitle!,
+            style: AppTextStyles.body(isDark),
           ),
         ],
       ],

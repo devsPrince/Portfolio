@@ -19,7 +19,7 @@ class AboutSection extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: mobile ? 20 : 64,
-          vertical: 60,
+          vertical: mobile ? 20 : 36,
         ),
         child: Center(
           child: ConstrainedBox(
@@ -32,7 +32,7 @@ class AboutSection extends StatelessWidget {
                   subtitle: "Architecting high-performance applications with precision and scalability.",
                   isDark: isDark,
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
                 Text(
                   "I’m a senior Flutter & FlutterFlow developer focused on building scalable, maintainable and visually polished cross-platform applications. I work across mobile, web and desktop platforms and enjoy transforming product ideas into reliable production-ready software.",
                   style: AppTextStyles.body(isDark).copyWith(fontSize: 17, height: 1.7),
@@ -44,36 +44,6 @@ class AboutSection extends StatelessWidget {
                 ),
                 const SizedBox(height: 48),
 
-                // Core Engineering Pillars
-                GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: mobile ? 1 : 3,
-                  crossAxisSpacing: 24,
-                  mainAxisSpacing: 24,
-                  childAspectRatio: mobile ? 1.4 : 1.15,
-                  children: [
-                    _AboutPillarCard(
-                      title: "Clean Architecture",
-                      description: "Strict separation of concerns (Presentation → Domain → Data) ensuring testable and maintainable codebases.",
-                      icon: Icons.grid_view_rounded,
-                      isDark: isDark,
-                    ),
-                    _AboutPillarCard(
-                      title: "Cross-Platform Mastery",
-                      description: "Single codebase excellence deployed seamlessly across Android, iOS, Web, macOS, and Linux.",
-                      icon: Icons.devices_rounded,
-                      isDark: isDark,
-                    ),
-                    _AboutPillarCard(
-                      title: "State & Performance",
-                      description: "Optimized BLoC/Cubit state management, smooth 60fps animations, and zero memory leaks.",
-                      icon: Icons.speed_rounded,
-                      isDark: isDark,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 48),
 
                 // Expertise Chips Header
                 Text(

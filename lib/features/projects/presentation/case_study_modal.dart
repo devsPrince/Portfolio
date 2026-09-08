@@ -253,11 +253,12 @@ class CaseStudyModal extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          if (project.githubUrl != null && !project.githubUrl!.contains("["))
+                          if ((project.gitLabUrl != null && !project.gitLabUrl!.contains("[")) ||
+                              (project.githubUrl != null && !project.githubUrl!.contains("[")))
                             ElevatedButton.icon(
-                              onPressed: () => UrlLauncherUtil.launchURL(project.githubUrl!),
+                              onPressed: () => UrlLauncherUtil.launchURL(project.gitLabUrl ?? project.githubUrl!),
                               icon: const Icon(Icons.code, size: 18),
-                              label: const Text("View Source"),
+                              label: const Text("View GitLab Repository"),
                               style: ElevatedButton.styleFrom(backgroundColor: AppColors.cardBg, foregroundColor: AppColors.primaryText),
                             ),
                           if (project.androidUrl != null && !project.androidUrl!.contains("[")) ...[

@@ -21,7 +21,7 @@ class FreelanceSection extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: mobile ? 20 : 64,
-          vertical: 60,
+          vertical: mobile ? 20 : 36,
         ),
         child: Center(
           child: ConstrainedBox(
@@ -34,7 +34,7 @@ class FreelanceSection extends StatelessWidget {
                   subtitle: "Partnering with ambitious founders and teams to turn concepts into robust market-ready products.",
                   isDark: isDark,
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 24),
                 GlassCard(
                   isDark: isDark,
                   padding: EdgeInsets.all(mobile ? 24 : 48),

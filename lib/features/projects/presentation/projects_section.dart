@@ -19,7 +19,16 @@ class ProjectsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool mobile = Responsive.isMobile(context) || Responsive.isTablet(context);
-    final filters = ["All", "Flutter", "FlutterFlow", "Mobile", "Web", "Desktop", "Firebase", "Freelance"];
+    final filters = [
+      "All",
+      "Flutter",
+      "FlutterFlow",
+      // "Mobile",
+      // "Web",
+      // "Desktop",
+      // "Firebase",
+      // "Freelance",
+    ];
 
     return BlocProvider(
       create: (_) => ProjectsCubit(),
@@ -32,7 +41,7 @@ class ProjectsSection extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: mobile ? 20 : 64,
-                vertical: 60,
+                vertical: mobile ? 20 : 36,
               ),
               child: Center(
                 child: ConstrainedBox(
@@ -45,7 +54,7 @@ class ProjectsSection extends StatelessWidget {
                         subtitle: "Real products, applications and architectures I've designed and developed.",
                         isDark: isDark,
                       ),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: 20),
 
                       // Filter Chips (Animated Navbar Style)
                       SingleChildScrollView(
@@ -267,11 +276,12 @@ class _ProjectCard extends StatelessWidget {
                         foregroundColor: Colors.white,
                       ),
                     ),
-                    if (project.githubUrl != null && !project.githubUrl!.contains("["))
+                    if ((project.gitLabUrl != null && !project.gitLabUrl!.contains("[")) ||
+                        (project.githubUrl != null && !project.githubUrl!.contains("[")))
                       OutlinedButton.icon(
-                        onPressed: () => UrlLauncherUtil.launchURL(project.githubUrl!),
+                        onPressed: () => UrlLauncherUtil.launchURL(project.gitLabUrl ?? project.githubUrl!),
                         icon: const Icon(Icons.code, size: 16),
-                        label: const Text("GitHub"),
+                        label: const Text("GitLab"),
                         style: OutlinedButton.styleFrom(foregroundColor: isDark ? AppColors.primaryText : AppColors.lightPrimaryText),
                       ),
                     if (project.androidUrl != null && !project.androidUrl!.contains("["))

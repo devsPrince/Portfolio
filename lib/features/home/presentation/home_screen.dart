@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../../../core/widgets/status_badge.dart';
 import '../../about/presentation/about_section.dart';
 import '../../contact/presentation/contact_section.dart';
-import '../../experience/presentation/experience_section.dart';
+// import '../../experience/presentation/experience_section.dart';
 import '../../freelance/presentation/freelance_section.dart';
 import '../../freelance/presentation/services_section.dart';
-import '../../github/presentation/github_section.dart';
+// import '../../github/presentation/github_section.dart';
 import '../../projects/presentation/projects_section.dart';
 import '../../skills/presentation/skills_section.dart';
 import '../widgets/footer.dart';
@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey _aboutKey = GlobalKey();
   final GlobalKey _skillsKey = GlobalKey();
   final GlobalKey _projectsKey = GlobalKey();
-  final GlobalKey _experienceKey = GlobalKey();
+  // final GlobalKey _experienceKey = GlobalKey();
   final GlobalKey _servicesKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
@@ -53,9 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
       case "Projects":
         key = _projectsKey;
         break;
-      case "Experience":
-        key = _experienceKey;
-        break;
+      // case "Experience":
+      //   key = _experienceKey;
+      //   break;
       case "Services":
         key = _servicesKey;
         break;
@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SafeArea(
           child: Stack(
             children: [
-              SingleChildScrollView(
+                SingleChildScrollView(
                 controller: _scrollController,
                 child: Column(
                   children: [
@@ -94,10 +94,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(key: _aboutKey, child: AboutSection(isDark: widget.isDark)),
                     Container(key: _skillsKey, child: SkillsSection(isDark: widget.isDark)),
                     Container(key: _projectsKey, child: ProjectsSection(isDark: widget.isDark)),
-                    Container(key: _experienceKey, child: ExperienceSection(isDark: widget.isDark)),
+
+                   /// Experiences
+                   // Container(key: _experienceKey, child: ExperienceSection(isDark: widget.isDark)),
                     Container(key: _servicesKey, child: ServicesSection(isDark: widget.isDark)),
                     FreelanceSection(onContact: () => _scrollToSection("Contact"), isDark: widget.isDark),
-                    Container(key: _githubKeyWidget(), child: GithubSection(isDark: widget.isDark)),
+                   // Container(key: _githubKeyWidget(), child: GithubSection(isDark: widget.isDark)),
                     Container(key: _contactKey, child: ContactSection(isDark: widget.isDark)),
                     Footer(onNavTap: _scrollToSection, isDark: widget.isDark),
                   ],
@@ -119,5 +121,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  GlobalKey _githubKeyWidget() => GlobalKey();
+  // GlobalKey _githubKeyWidget() => GlobalKey();
 }

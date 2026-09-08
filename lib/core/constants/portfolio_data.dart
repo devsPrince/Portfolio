@@ -8,6 +8,7 @@ class ProjectModel {
   final List<String> technologies;
   final List<String> platforms;
   final String? githubUrl;
+  final String? gitLabUrl;
   final String? androidUrl;
   final String? iosUrl;
   final String? webUrl;
@@ -28,6 +29,7 @@ class ProjectModel {
     required this.technologies,
     required this.platforms,
     this.githubUrl,
+    this.gitLabUrl,
     this.androidUrl,
     this.iosUrl,
     this.webUrl,
@@ -109,13 +111,14 @@ class RepositoryModel {
 class PortfolioData {
   static const String developerName = "Prince Kumar";
   static const String primaryTitle = "Flutter Developer | FlutterFlow Developer | Cross-Platform App Developer";
-  static const String tagline = "Senior Flutter & FlutterFlow Architect";
+  static const String tagline = "Senior Flutter & FlutterFlow Developer";
   static const String profileImageUrl =  "assets/images/profile_image.png";
   static const String bio = "I'm a senior Flutter & FlutterFlow developer focused on building scalable, maintainable and visually polished cross-platform applications. I work across mobile, web and desktop platforms and enjoy transforming product ideas into reliable production-ready software with Clean Architecture, BLoC, Riverpod, Provider, and GetX.";
   static const String email = "princedev.freelance@gmail.com";
   static const String githubUrl = "https://github.com/devsPrince";
+  static const String gitLabUrl = "https://gitlab.com/princedev.freelance";
   static const String linkedinUrl = "https://www.linkedin.com/in/prince-kumar-5b2599205";
-  static const String phone = "+91 9990273329";
+  // static const String phone = "+91 9990273329";
   static const String location = "Remote / Global";
   static const String experienceYears = "5+ Years Experience";
   static const String availability = "Available for Freelance & Full-Time";
@@ -137,7 +140,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "GetX", "Node.js", "Firebase", "In-App Purchases", "WebSockets"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.fourfc",
       iosUrl: "https://apps.apple.com/in/app/4fc-rap-music-battle/id6468482326",
       featured: true,
@@ -163,7 +166,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "Bloc", "Cubit", "Node.js", "Firebase", "Razorpay", "Google Maps API", "WebSockets"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.supernan&pcampaignid=web_share",
       iosUrl: "https://apps.apple.com/in/app/supernan-the-nanny-you-need/id6460034352",
       featured: true,
@@ -189,7 +192,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "GetX", "Node.js", "Firebase", "Google Maps API", "Reel Feature", "In-App Purchases", "WebSockets"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.onstages&hl=en_IN",
       iosUrl: "https://apps.apple.com/in/app/online-stage-music-event-job/id6743424349",
       featured: true,
@@ -215,7 +218,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "setState", "Node.js", "Firebase", "Video/Audio Streaming"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.pro.samta",
       iosUrl: "https://apps.apple.com/in/app/samtawad/id1658548280",
       featured: false,
@@ -241,7 +244,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "GetX", "Node.js", "Firebase", "In-App Purchases", "WebSockets"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.partyplans",
       iosUrl: "https://apps.apple.com/in/app/partyplans-find-event-pros/id6618148968",
       featured: true,
@@ -259,54 +262,54 @@ class PortfolioData {
     ProjectModel(
       id: "p6",
       title: "Muslims Map",
-      category: "Flutter",
-      description: "A community-driven platform helping users discover and support Muslim-owned businesses, places of worship, events, and services in non-Muslim countries with interactive maps and reviews.",
+      category: "FlutterFlow",
+      description: "A community-driven platform helping users discover and support Muslim-owned businesses, places of worship, events, and services in non-Muslim countries with interactive maps and reviews, built rapidly with FlutterFlow.",
       image: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80",
       screenshots: [
         "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
       ],
-      technologies: ["Flutter (Dart)", "GetX", "Node.js", "Firebase", "Google Maps API", "In-App Purchases"],
+      technologies: ["FlutterFlow", "Firebase", "Google Maps API", "In-App Purchases", "Custom Actions"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.muslimsmap",
       iosUrl: "https://apps.apple.com/in/app/muslims-map/id6504747059",
       featured: false,
-      role: "Senior Flutter Developer",
-      problem: "Making it easy for communities to discover verified businesses and mosques abroad.",
-      solution: "Integrated Google Maps API with custom clustering markers, user reviews, and business listing management.",
+      role: "Senior FlutterFlow Developer",
+      problem: "Making it easy for communities to discover verified businesses and mosques abroad with rapid MVP delivery.",
+      solution: "Engineered with FlutterFlow and Google Maps API, integrating custom marker clustering and business listing management.",
       features: [
         "Interactive map discovery of verified businesses and mosques",
         "Community reviews and ratings",
         "Business owner listing and verification portal",
         "Promoted placement via in-app purchases"
       ],
-      architecture: "GetX reactive state management with Google Maps clustering logic."
+      architecture: "FlutterFlow front-end with Firebase backend and custom map clustering actions."
     ),
     ProjectModel(
       id: "p7",
       title: "Black Primacy",
-      category: "Flutter",
-      description: "A global platform for discovering and supporting Black-owned businesses, featuring interactive maps with custom markers, reviews, and direct contact details.",
+      category: "FlutterFlow",
+      description: "A global platform for discovering and supporting Black-owned businesses, featuring interactive maps with custom markers, reviews, and direct contact details, built with FlutterFlow.",
       image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80",
       screenshots: [
         "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80"
       ],
-      technologies: ["Flutter (Dart)", "Provider", "Node.js", "Firebase", "Google Maps API", "In-App Purchases"],
+      technologies: ["FlutterFlow", "Firebase", "Google Maps API", "In-App Purchases", "Custom Dart"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.blackprimacy",
       iosUrl: "https://apps.apple.com/in/app/black-primacy/id1604784917",
       featured: false,
-      role: "Senior Flutter Developer",
-      problem: "Building a searchable directory and interactive map for Black-owned enterprises.",
-      solution: "Implemented Provider state management with geo-spatial queries and Google Maps place details.",
+      role: "Senior FlutterFlow Developer",
+      problem: "Building a searchable directory and interactive map for Black-owned enterprises rapidly and scalably.",
+      solution: "Developed using FlutterFlow visual builder with geo-spatial queries and Google Maps place details.",
       features: [
         "Geo-localized business discovery map",
         "Detailed shop profiles and contact information",
         "User reviews and community curation",
         "Monetized business promotion features"
       ],
-      architecture: "Provider pattern with repository abstraction over Firebase and Google Maps services."
+      architecture: "FlutterFlow low-code framework with Firebase Firestore backend and Google Maps integrations."
     ),
     ProjectModel(
       id: "p8",
@@ -319,7 +322,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "Provider", "Node.js", "Firebase", "Stripe Payment Gateway"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.ownitoo&pcampaignid=web_share",
       iosUrl: "https://apps.apple.com/in/app/ownitoo/id6448990297",
       featured: false,
@@ -345,7 +348,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "GetX", "Hive", "SQLite", "Charts (Syncfusion / fl_chart)", "Math & Stats Engine"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.beyondBoards",
       iosUrl: "https://apps.apple.com/in/app/beyond-boards-and-bags/id6569248365",
       featured: false,
@@ -371,7 +374,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "Firebase", "REST APIs"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.vigourmedia",
       iosUrl: "https://apps.apple.com/in/app/vigour-media/id6446580465",
       featured: false,
@@ -397,7 +400,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "GetX", "Node.js", "MongoDB", "Google Maps API", "Razorpay", "Hive", "Firebase"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.whitler&pcampaignid=web_share",
       iosUrl: "https://apps.apple.com/in/app/whiter-car-bike-wash/id6740070569",
       featured: true,
@@ -423,7 +426,7 @@ class PortfolioData {
       ],
       technologies: ["Flutter (Dart)", "GetX", "Node.js", "MongoDB", "Razorpay", "WebRTC", "Firebase"],
       platforms: ["Android", "iOS"],
-      githubUrl: "https://github.com/devsPrince",
+      gitLabUrl: "https://gitlab.com/princedev.freelance",
       androidUrl: "https://play.google.com/store/apps/details?id=com.app.thadababy",
       iosUrl: "https://apps.apple.com/in/app/tahda-baby/id6673907786",
       featured: false,
@@ -438,6 +441,8 @@ class PortfolioData {
       ],
       architecture: "GetX architecture with WebRTC video signaling and MongoDB backend."
     ),
+
+
   ];
 
   static const List<ExperienceModel> experiences = [

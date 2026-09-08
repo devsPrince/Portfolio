@@ -20,7 +20,7 @@ class ServicesSection extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: mobile ? 20 : 64,
-          vertical: 60,
+          vertical: mobile ? 20 : 36,
         ),
         child: Center(
           child: ConstrainedBox(
@@ -33,7 +33,7 @@ class ServicesSection extends StatelessWidget {
                   subtitle: "Professional capabilities tailored for startups, agencies, and product companies.",
                   isDark: isDark,
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 24),
                 GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
