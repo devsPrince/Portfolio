@@ -32,7 +32,12 @@ jobs:
         run: flutter test
 
       - name: Build Web Application
-        run: flutter build web --release --base-href "/${{ github.event.repository.name }}/"
+        run: flutter build web --release --base-href "/Portfolio/"
+
+      - name: Create GitHub Pages helper files (.nojekyll & 404.html)
+        run: |
+          touch build/web/.nojekyll
+          cp build/web/index.html build/web/404.html
 
       - name: Deploy to GitHub Pages
         uses: PeaceIris/actions-gh-pages@v3
