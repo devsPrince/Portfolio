@@ -115,7 +115,7 @@ class _SkillCardState extends State<_SkillCard> {
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: AppColors.accent.withOpacity(0.15),
+                        color: AppColors.accent.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.code, size: 20, color: AppColors.accent),
@@ -148,8 +148,8 @@ class _SkillCardState extends State<_SkillCard> {
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: widget.skill.level == "Primary"
-                      ? AppColors.accent.withOpacity(0.15)
-                      : AppColors.secondaryAccent.withOpacity(0.15),
+                      ? AppColors.accent.withValues(alpha: 0.15)
+                      : AppColors.secondaryAccent.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Text(

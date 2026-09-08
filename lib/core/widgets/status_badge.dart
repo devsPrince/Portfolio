@@ -16,15 +16,15 @@ class StatusBadge extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
           decoration: BoxDecoration(
-            color: (isDark ? AppColors.cardBg : Colors.white).withOpacity(0.8),
+            color: (isDark ? AppColors.cardBg : Colors.white).withValues(alpha: 0.8),
             borderRadius: BorderRadius.circular(30),
             border: Border.all(
-              color: AppColors.success.withOpacity(0.4),
+              color: AppColors.success.withValues(alpha: 0.4),
               width: 1,
             ),
             boxShadow: [
               BoxShadow(
-                color: AppColors.success.withOpacity(0.1),
+                color: AppColors.success.withValues(alpha: 0.1),
                 blurRadius: 10,
                 spreadRadius: 1,
               ),

@@ -30,7 +30,7 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: showHamburger ? 20 : 48, vertical: 16),
       decoration: BoxDecoration(
-        color: (isDark ? AppColors.primaryBg : AppColors.lightPrimaryBg).withOpacity(0.85),
+        color: (isDark ? AppColors.primaryBg : AppColors.lightPrimaryBg).withValues(alpha: 0.85),
         border: Border(
           bottom: BorderSide(
             color: isDark ? AppColors.border : AppColors.lightBorder,
@@ -180,10 +180,10 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
             duration: const Duration(milliseconds: 250),
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: isActive ? AppColors.accent.withOpacity(0.15) : Colors.transparent,
+              color: isActive ? AppColors.accent.withValues(alpha: 0.15) : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: isActive ? AppColors.accent.withOpacity(0.4) : Colors.transparent,
+                color: isActive ? AppColors.accent.withValues(alpha: 0.4) : Colors.transparent,
                 width: 1,
               ),
             ),
@@ -226,7 +226,7 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
                       width: 48,
                       height: 4,
                       decoration: BoxDecoration(
-                        color: AppColors.secondaryText.withOpacity(0.3),
+                        color: AppColors.secondaryText.withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),
@@ -269,7 +269,7 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: isActive ? AppColors.accent : AppColors.accent.withOpacity(0.15),
+            color: isActive ? AppColors.accent : AppColors.accent.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(icon, size: 20, color: isActive ? Colors.white : AppColors.accent),

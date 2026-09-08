@@ -29,7 +29,7 @@ class CaseStudyModal extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.4),
+              color: Colors.black.withValues(alpha: 0.4),
               blurRadius: 30,
               offset: const Offset(0, 15),
             ),
@@ -55,7 +55,7 @@ class CaseStudyModal extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: AppColors.accent.withOpacity(0.15),
+                        color: AppColors.accent.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: Text(
@@ -132,7 +132,7 @@ class CaseStudyModal extends StatelessWidget {
                         children: project.platforms.map((platform) {
                           return Chip(
                             label: Text(platform),
-                            backgroundColor: AppColors.secondaryAccent.withOpacity(0.1),
+                            backgroundColor: AppColors.secondaryAccent.withValues(alpha: 0.1),
                             labelStyle: TextStyle(color: AppColors.secondaryAccent, fontSize: 12),
                             side: BorderSide.none,
                           );
@@ -231,9 +231,9 @@ class CaseStudyModal extends StatelessWidget {
                           return Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
-                              color: AppColors.accent.withOpacity(0.1),
+                              color: AppColors.accent.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: AppColors.accent.withOpacity(0.3)),
+                              border: Border.all(color: AppColors.accent.withValues(alpha: 0.3)),
                             ),
                             child: Text(
                               tech,
@@ -318,7 +318,7 @@ class CaseStudyModal extends StatelessWidget {
       decoration: BoxDecoration(
         color: isDark ? AppColors.cardBg : AppColors.lightCardBg,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -355,7 +355,7 @@ class CaseStudyModal extends StatelessWidget {
       decoration: BoxDecoration(
         color: isDark ? AppColors.secondaryBg : AppColors.lightSecondaryBg,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppColors.accent.withOpacity(0.3)),
+        border: Border.all(color: AppColors.accent.withValues(alpha: 0.3)),
       ),
       child: Text(
         text,

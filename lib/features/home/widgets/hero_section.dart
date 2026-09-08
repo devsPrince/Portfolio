@@ -50,9 +50,9 @@ class HeroSection extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                       decoration: BoxDecoration(
-                        color: AppColors.accent.withOpacity(0.15),
+                        color: AppColors.accent.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppColors.accent.withOpacity(0.3)),
+                        border: Border.all(color: AppColors.accent.withValues(alpha: 0.3)),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -180,15 +180,15 @@ class HeroSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
-        color: isDark ? AppColors.cardBg.withOpacity(0.9) : AppColors.lightCardBg,
+        color: isDark ? AppColors.cardBg.withValues(alpha: 0.9) : AppColors.lightCardBg,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: AppColors.accent.withOpacity(0.3),
+          color: AppColors.accent.withValues(alpha: 0.3),
           width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.accent.withOpacity(0.2),
+            color: AppColors.accent.withValues(alpha: 0.2),
             blurRadius: 30,
             spreadRadius: 2,
             offset: const Offset(0, 10),
@@ -213,7 +213,7 @@ class HeroSection extends StatelessWidget {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.accent.withOpacity(0.4),
+                      color: AppColors.accent.withValues(alpha: 0.4),
                       blurRadius: 25,
                       spreadRadius: 5,
                     ),
@@ -345,9 +345,9 @@ class HeroSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

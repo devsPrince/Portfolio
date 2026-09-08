@@ -103,7 +103,7 @@ class ContactSection extends StatelessWidget {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: AppColors.accent.withOpacity(0.15),
+                color: AppColors.accent.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(icon, size: 20, color: AppColors.accent),
@@ -213,9 +213,9 @@ class _ContactFormViewState extends State<_ContactFormView> {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.1),
+                  color: Colors.red.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.red.withOpacity(0.3)),
+                  border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
                 ),
                 child: Row(
                   children: [

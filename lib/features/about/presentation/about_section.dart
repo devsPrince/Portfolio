@@ -150,15 +150,15 @@ class _AboutPillarCardState extends State<_AboutPillarCard> {
         transform: Matrix4.translationValues(0, _isHovered ? -6 : 0, 0),
         padding: const EdgeInsets.all(28),
         decoration: BoxDecoration(
-          color: widget.isDark ? AppColors.cardBg.withOpacity(0.9) : AppColors.lightCardBg,
+          color: widget.isDark ? AppColors.cardBg.withValues(alpha: 0.9) : AppColors.lightCardBg,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: _isHovered ? AppColors.accent.withOpacity(0.6) : (widget.isDark ? AppColors.border : AppColors.lightBorder),
+            color: _isHovered ? AppColors.accent.withValues(alpha: 0.6) : (widget.isDark ? AppColors.border : AppColors.lightBorder),
             width: _isHovered ? 1.5 : 1,
           ),
           boxShadow: [
             BoxShadow(
-              color: _isHovered ? AppColors.accent.withOpacity(0.25) : Colors.black.withOpacity(0.1),
+              color: _isHovered ? AppColors.accent.withValues(alpha: 0.25) : Colors.black.withValues(alpha: 0.1),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),
@@ -170,7 +170,7 @@ class _AboutPillarCardState extends State<_AboutPillarCard> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.accent.withOpacity(0.15),
+                color: AppColors.accent.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(widget.icon, size: 28, color: AppColors.accent),

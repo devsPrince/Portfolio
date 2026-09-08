@@ -38,7 +38,7 @@ class ExperienceSection extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: PortfolioData.experiences.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 24),
+                  separatorBuilder: (_, _) => const SizedBox(height: 24),
                   itemBuilder: (context, index) {
                     final exp = PortfolioData.experiences[index];
                     return GlassCard(
@@ -76,7 +76,7 @@ class ExperienceSection extends StatelessWidget {
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                                 decoration: BoxDecoration(
-                                  color: AppColors.accent.withOpacity(0.15),
+                                  color: AppColors.accent.withValues(alpha: 0.15),
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                                 child: Text(

@@ -63,7 +63,7 @@ class ProjectsSection extends StatelessWidget {
                                     duration: const Duration(milliseconds: 250),
                                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                                     decoration: BoxDecoration(
-                                      color: isSelected ? AppColors.accent.withOpacity(0.2) : (isDark ? AppColors.cardBg : AppColors.lightCardBg),
+                                      color: isSelected ? AppColors.accent.withValues(alpha: 0.2) : (isDark ? AppColors.cardBg : AppColors.lightCardBg),
                                       borderRadius: BorderRadius.circular(10),
                                       border: Border.all(
                                         color: isSelected ? AppColors.accent : (isDark ? AppColors.border : AppColors.lightBorder),
@@ -72,7 +72,7 @@ class ProjectsSection extends StatelessWidget {
                                       boxShadow: isSelected
                                           ? [
                                               BoxShadow(
-                                                color: AppColors.accent.withOpacity(0.25),
+                                                color: AppColors.accent.withValues(alpha: 0.25),
                                                 blurRadius: 12,
                                                 spreadRadius: 1,
                                               ),
@@ -104,7 +104,7 @@ class ProjectsSection extends StatelessWidget {
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: state.filteredProjects.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 32),
+                        separatorBuilder: (_, _) => const SizedBox(height: 32),
                         itemBuilder: (context, index) {
                           final project = state.filteredProjects[index];
                           return _ProjectCard(
@@ -186,7 +186,7 @@ class _ProjectCard extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: AppColors.accent.withOpacity(0.15),
+                        color: AppColors.accent.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: Text(
@@ -203,7 +203,7 @@ class _ProjectCard extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: AppColors.success.withOpacity(0.15),
+                          color: AppColors.success.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(
